@@ -52,7 +52,7 @@ exports.like = (req, res, next) => {
             { _id: databaseId },
             { $pull: { usersLiked: userId }, $inc: { likes: -1 } }
           )
-            .then(() => res.status(200).json({ message: "utl aime" }))
+            .then(() => res.status(200).json({ message: "utl n'aime plus" }))
             .catch((error) => res.status(401).json({ error }));
         }
         if (sauce.usersDisliked.includes(userId)) {
@@ -60,7 +60,7 @@ exports.like = (req, res, next) => {
             { _id: databaseId },
             { $pull: { usersDisliked: userId }, $inc: { dislikes: -1 } }
           )
-            .then(() => res.status(200).json({ message: "utl aime" }))
+            .then(() => res.status(200).json({ message: "utl n'aime plus" }))
             .catch((error) => res.status(401).json({ error }));
         }
       });
@@ -72,7 +72,7 @@ exports.like = (req, res, next) => {
         { _id: databaseId },
         { $push: { usersDisliked: userId }, $inc: { dislikes: +1 } }
       )
-        .then(() => res.status(200).json({ message: "utl n'aime plus" }))
+        .then(() => res.status(200).json({ message: "utl n'aime pas" }))
         .catch((error) => res.status(401).json({ error }));
       break;
 
