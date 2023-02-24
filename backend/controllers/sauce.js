@@ -20,7 +20,7 @@ exports.createSauce = (req, res, next) => {
   sauce
     .save()
     .then(() => {
-      res.status(201).json({ message: "Objet enregistré !" });
+      res.status(201).json({ message: "New Sauce !" });
     })
     .catch((error) => {
       res.status(400).json({ error });
@@ -105,7 +105,7 @@ exports.modifySauce = (req, res, next) => {
       if (updatedSauce.userId != req.auth.userId) {
         return res.status(401).json({ message: "Not authorized" });
       }
-      res.status(200).json({ message: "Objet modifié!" });
+      res.status(200).json({ message: "Sauce modified" });
     })
     .catch((error) => {
       res.status(400).json({ error });
@@ -123,7 +123,7 @@ exports.deleteSauce = (req, res, next) => {
           if (error) {
             res.status(500).json({ error });
           } else {
-            res.status(200).json({ message: "Objet supprimé !" });
+            res.status(200).json({ message: "Sauce deleted !" });
           }
         });
       }
